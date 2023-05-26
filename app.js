@@ -135,7 +135,7 @@ app.get("/:customListName", async function (req, res) {
 app.get("/about", function (req, res) {
   res.render("about");
 }); 
-app.listen(process.env.PORT);
+//app.listen(process.env.PORT);
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
