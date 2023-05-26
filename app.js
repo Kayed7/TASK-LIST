@@ -2,18 +2,21 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const { name } = require("ejs");
 const date = require(__dirname + "/date.js");
-
+require("dotenv").config();
+const atlasUrl = process.env.ATLAS_URL;
+console.log(process.env.ATLAS_URL);
 const app = express();
 
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
-mongoose.connect("mongodb+srv://admin-kayed:test123@cluster0.wla0v86.mongodb.net/TodoListDB", {
+/*Mongo Atlas Connection*/ 
+mongoose.connect(atlasUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
